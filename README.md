@@ -1,8 +1,2 @@
-<center><font face="Times New Roman" size=7>VSG-HOI: Enhance Understanding of Human-Object Interaction in Videos with Visual, Structural and Global Information</font></center> 
-
-<center><font face="Arial" size=4>Bohong Wu, Qing Gao</font></center>
-
-
-
-
-<font face="Arial" size=6>Abstact</font>
+## Podcast
+We generated a podcast conversation of the paper using [NotebookLM](https://notebooklm.google/). The podcast might diverge from the precise concepts described in the paper, but they provide a general overview and facilitate the fast comprehension of the general aspects of the paper. 
