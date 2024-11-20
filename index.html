@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:title" content="ImitationNet: Unsupervised human-to-robot motion retargeting via shared latent space"/>
+  <meta property="og:url" content="https://evm7.github.io/UnsH2R/"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>ImitationNet: Unsupervised human-to-robot motion retargeting via shared latent space</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/icon2.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/audioPlayer.js" defer></script>
+</head>
+
+<body>
+
+  
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://evm7.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://evm7.github.io/Self-AWare/">
+            Self-AWare
+          </a>
+          <a class="navbar-item" href="https://evm7.github.io/I-CTRL/">
+            I-CTRL
+          </a>
+          <a class="navbar-item" href="https://evm7.github.io/ECHO/">
+            ECHO
+          </a>
+          <a class="navbar-item" href="https://evm7.github.io/HOI4ABOT_page/">
+            HOI4ABOT
+          </a>
+           <a class="navbar-item" href="https://evm7.github.io/UNIMASKM-page/">
+            UNIMASK-M
+          </a>
+          <a class="navbar-item" href="https://evm7.github.io/icvae-page/">
+            IntentionCVAE
+          </a>
+          <a class="navbar-item" href="https://evm7.github.io/HOIGaze-page/">
+            HOIGaze
+          </a>
+            <a class="navbar-item" href="https://evm7.github.io/2CHTR-page/">
+            2CHTR
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ImitationNet: Unsupervised human-to-robot motion retargeting via shared latent space</h1>
+          <div class="is-size-3 publication-authors">
+            Humanoids, 2023
+          </div>
+        </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://www.tuwien.at/en/etit/ict/asl/team/yashuai-yan" target="_blank">Yashuai Yan*</a>,</span>
+           <span class="author-block"><a href="https://evm7.github.io/" target="_blank">Esteve Valls Mascaro*</a>,</span>
+            <span class="author-block"><a href="https://www.tuwien.at/etit/ict/asl/team/dongheui-lee" target="_blank">Dongheui Lee</a>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Technische Universit ̈at Wien (TUWien), German Aerospace Center (DLR)</span> 
+            <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+          </div>
+          
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2309.05310" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              
+              <!-- PDF Link. -->
+              <span class="link-block">
+               <a href="https://ieeexplore.ieee.org/document/10375150" target="_blank"
+                class="external-link button is-normal is-rounded">
+                 <span class="icon">
+                   <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+                            </span>
+              <!-- </span> -->
+              <!-- Colab Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="ADD HERE THE CODE" target="_blank"-->
+<!--                class="external-link button is-normal is-rounded">-->
+<!--                <span class="icon">-->
+<!--                  <i class="fab fa-github"></i>-->
+<!--                </span>-->
+<!--                <span>Code</span>-->
+<!--              </a>-->
+<!--             </span>-->
+
+<!--              <span class="link-block">-->
+<!--                <a href="ADD HERE REPLICATE IF NEEDED" target="_blank"-->
+<!--                class="external-link button is-normal is-rounded">-->
+<!--                <span class="icon">-->
+<!--                  <i class="fas fa-rocket"></i>-->
+<!--                </span>-->
+<!--                <span>Demo</span>-->
+<!--              </a>-->
+<!--              </span>-->
+              <!-- </span> -->
+              <!-- Colab Link. -->
+		    <!-- Play/Pause button and audio -->
+		    <span class="link-block">
+		      <span class="audio-player" style="display: inline-block; vertical-align: middle;">
+			<button id="audio-control-button" onclick="toggleAudio()" class="button is-normal is-rounded">
+			  <span class="icon">
+			    <i id="play-icon" class="fas fa-play"></i>
+			  </span>
+			  <span id="play-text">Podcast</span>
+			</button>
+			<audio id="audio-file" src="static/audio/PodCastAudio.wav" type="audio/wav" style="display: none;"></audio>
+		  </span>
+	    </span>
+	  </div>
+
+		 <!-- Hidden Playback Controls + Disclaimer -->
+	  <div id="audio-controls" style="display: none; margin-top: 15px;">
+	    <div>
+	      <input id="seek-bar" type="range" min="0" value="0" step="1" style="width: 100%;">
+	      <span id="time-remaining">0:00</span> / <span id="duration">0:00</span>
+	    </div>
+	    
+	    <!-- Disclaimer -->
+	    <div class="disclaimer" style="margin-top: 10px;">
+  <p><strong>Disclaimer:</strong> This audio was generated by AI <a href="https://notebooklm.google/" target="_blank">NotebookLM</a> and might contain false or misleading information about the paper. Please refer to the original paper for accurate details.</p>
+
+	    </div>
+	  </div>
+
+	  <!-- Toggle Visibility Icon -->
+	  <div id="toggle-visibility-icon" style="display: none; text-align: right; margin-top: 5px;">
+	    <i id="visibility-icon" class="fas fa-eye" style="cursor: pointer;" onclick="toggleControls()"></i>
+	  </div>
+	</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+<section class="hero is-small">
+  <!~~ <div class="hero-body"> ~~>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!~~ <div id="results-carousel" class="carousel results-carousel"> ~~>
+      <div class="container">
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/teaser.png" alt="UNIMASKM"/>
+      </div>
+
+    </div>
+  </div>
+ <!~~  </div> ~~>
+  </div>
+  </div>
+ <!~~  </div> ~~>
+</section>
+ -->
+
+  <section class="hero is-small">
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="container">
+        <div class="item">
+          <p style="margin-bottom: 30px">
+ 
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/videos/overview.mp4"
+          type="video/mp4">
+        </video>
+        </p>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+    
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          This paper introduces a novel deep-learning approach for human-to-robot motion retargeting, enabling robots to mimic human poses accurately. Contrary to prior deep-learning-based works, our method does not require paired human-to-robot data, which facilitates its translation to new robots. First, we construct a shared latent space between humans and robots via adaptive contrastive learning that takes advantage of a proposed cross-domain similarity metric between the human and robot poses.  Additionally, we propose a consistency term to build a common latent space that captures the similarity of the poses with precision while allowing direct robot motion control from the latent space. For instance, we can generate in-between motion through simple linear interpolation between two projected human poses. We conduct a comprehensive evaluation of robot control from diverse modalities (i.e., texts, RGB videos, and key poses), which facilitates robot control for non-expert users. Our model outperforms existing works regarding human-to-robot retargeting in terms of efficiency and precision. Finally, we implemented our method in a real robot with self-collision avoidance through a whole-body controller to showcase the effectiveness of our approach.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/overview.jpg" alt="Motivation of our model"/>
+      </div>    
+  </div>
+</div>
+</div>
+</section>
+
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+         <h2 class="title is-3">How does it work?</h2> 
+        <div class="content has-text-justified">
+          <p>
+Our human-to-robot motion retargeting connects robot control with diverse source modalities, such as a text description, an RGB video, or key poses. Our approach can encode human skeletons into a shared latent space between humans and robots, and subsequently decode these latent variables into the robot’s joint space, enabling direct robot control. Additionally, our approach facilitates the generation of smooth robot motions between human key poses (represented as green and blue dots) through interpolation within the latent space (indicated by the orange dots).
+          </p>
+        <div class="columns is-centered has-text-centered">
+            <div class="item">
+          <p style="margin-bottom: 30px">
+<!--
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/MDM-page.mp4"
+          type="video/mp4">
+        </video>
+ --><br><br>
+        </p>
+        </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+    
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/modeloverview.jpg" alt="Architecture of our ImitationNet"/>
+      </div>    
+  </div>
+</div>
+</div>
+</section>
+
+
+      <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Human Motion Retargeting From Videos</h2>
+          <p>
+
+            We estimate the human pose from RGB images using an off-the-shelf pose estimator and we feed our ImitationNet model with the predicted human pose. Our model can control the real TiaGo robot in real-time thanks to its light-weight design with a high-accuracy in the retargeting.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+    
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          
+      <div class="column is-centered has-text-centered">
+        <p><b> “A human and TiaGo are moving among obstacles”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/s0_moving.mp4" type="video/mp4">
+                </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <p><b> “A human and TiaGo are moving among obstacles”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/s0_moving2.mp4" type="video/mp4">
+                </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <p><b> “A human and TiaGo are moving among obstacles”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/s2_moving.mp4" type="video/mp4">
+                </video>
+      </div>
+        <div class="column is-centered has-text-centered">
+        <p><b> “A human is performing random movements, which TiaGo imitates.”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/random.mp4" type="video/mp4">
+                </video>
+      </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+   <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Human Motion Retargeting From Text commands</h2>
+          <p>
+
+            We use off-the-shelf text-to-motion models to generate a human motion from textual commands, which we then feed to our ImitationNet model. Our model allows therefore the control of the real TiaGo robot from text commands, which facilitates the deployment of natural human-like movements to robots just using text and without any experts demonstrations or robot data.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+    
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          
+      <div class="column is-centered has-text-centered">
+        <p><b> “A man touches his head with his right arm”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/text2motion/A man touches his head with his right arm (x4).mp4" type="video/mp4">
+                </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <p><b> “A person is dancing by moving the arms”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/text2motion/A person is dancing by moving the arms (x4).mp4" type="video/mp4">
+                </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <p><b> “A person is performing a handshake”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/text2motion/A person is performing a hanshake (x4).mp4" type="video/mp4">
+                </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <p><b> “A person waves with his two hands.”</b></p>
+                <video poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/figures/videos/text2motion/A person waves with his two hands (x4).mp4" type="video/mp4">
+                </video>
+      </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Human Motion Retgareting with different robots from textual commands</h2>
+          <p>
+          To showcase the effectiveness of our approach in retargeting more complex robots, we showcase the Nao, Atlas, and JVRC humanoid robots in simulation imitating any human motion provided. Our framework can learn this retargeting with only 40 minutes of training and only using the robot URDF, without any robot annotated data.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+    <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          
+      <div class="column is-centered has-text-centered">
+              <video poster="" id="tree" autoplay controls muted loop height="100%">
+                <source src="static/figures/videos/robots_simulation/002627_2.mp4" type="video/mp4">
+              </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+              <video poster="" id="tree" autoplay controls muted loop height="100%">
+                <source src="static/figures/videos/robots_simulation/006861.mp4" type="video/mp4">
+              </video>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+     <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Human Motion Retargeting From Key Poses</h2>
+          <p>
+      Thanks to our training contrastive learning approach, ImitationNet builts a tractable latent space where similar poses are pushed together while dissimilar are pushed apart. Our model is then able to generate movements between key poses by uniquely interpolating the representation space of two given poses in the latent space.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+    
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container" style="display: flex; flex-wrap: wrap;">         
+        <div class="column is-centered has-text-centered">
+          <p><b> “From both hands in the floor to the arm span”</b></p>
+                  <video poster="" id="tree" autoplay controls muted loop height="100%">
+                    <source src="static/figures/videos/interpolation/down2open.mp4" type="video/mp4">
+                  </video>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <p><b> “From arm span to placing the left arm to the floor”</b></p>
+                  <video poster="" id="tree" autoplay controls muted loop height="100%">
+                    <source src="static/figures/videos/interpolation/open2onehandspan.mp4" type="video/mp4">
+                  </video>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <p><b> “Changing the arm which is closer to the floor”</b></p>
+                  <video poster="" id="tree" autoplay controls muted loop height="100%">
+                    <source src="static/figures/videos/interpolation/onehand2otherhand.mp4" type="video/mp4">
+                  </video>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <p><b> “From arms on the upper position to bottom position”</b></p>
+                  <video poster="" id="tree" autoplay controls muted loop height="100%">
+                    <source src="static/figures/videos/interpolation/up2down.mp4" type="video/mp4">
+                  </video>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+
+  <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison with the baseline</h2>
+          <p>
+        We compare our ImitationNet (TiaGo robot on the left of the simulation) with the previous baseline model (located on the right). Our results shows the smooth and accuracy of the pose retargeting, which outperforms previous state-of-the-art.         </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section> 
+
+
+      <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          
+      <div class="column is-centered has-text-centered">
+              <video poster="" id="tree" autoplay controls muted loop height="100%">
+                <source src="static/figures/videos/baselines/baseline1.mp4" type="video/mp4">
+              </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+              <video poster="" id="tree" autoplay controls muted loop height="100%">
+                <source src="static/figures/videos/baselines/baseline2.mp4" type="video/mp4">
+              </video>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+    
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+@INPROCEEDINGS{10375150,
+  author={Yan, Yashuai and Mascaro, Esteve Valls and Lee, Dongheui},
+  booktitle={2023 IEEE-RAS 22nd International Conference on Humanoid Robots (Humanoids)}, 
+  title={ImitationNet: Unsupervised Human-to-Robot Motion Retargeting via Shared Latent Space}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-8},
+  keywords={Robot motion;Measurement;Interpolation;Three-dimensional displays;Humanoid robots;Aerospace electronics;Skeleton},
+  doi={10.1109/Humanoids57100.2023.10375150}}
+</code></pre>
+    </div>
+</section>
+
+
+
+
+<footer class="footer">
+ <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+  </body>
+  </html>
