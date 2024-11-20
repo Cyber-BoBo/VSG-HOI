@@ -294,7 +294,10 @@ We have validated the effectiveness of VSG-HOI on MPHOI-72, CAD-120 and Bimanual
          <h2 class="title is-3">Architecture</h2> 
         <div class="content has-text-justified">
           <p>
-
+		  VSG-HOI takes inputs through pre-trained Faster R-CNN and pose estimation (marked with snowflake).
+		  The feature extraction part includes three branches: visual, structural, and global.
+		  For the structural branch and global branch, structural enhancement module (SEM) and global enhancement module (GEM) is designed to enhance feature expression.
+		  Features from three branches are fused by an attention-based multimodal fusion strategy.
           </p>
         <div class="columns is-centered has-text-centered">
             <div class="item">
